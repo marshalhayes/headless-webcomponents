@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@hui/switch</title>
+
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="../dist/src/index.js" type="module"></script>
+  </head>
+
+  <body class="flex justify-center bg-gray-900 text-gray-200">
+    <div class="container bg-gray-100 text-gray-900 rounded p-6 mt-12 mx-auto">
+      <h1 class="text-2xl">HUI Switch</h1>
+      <p>Toggle me on/off</p>
+
+      <div id="demo" class="mt-4">
+        <hui-switch
+          class="
+            relative
+            inline-flex
+            items-center
+            h-6
+            rounded-full
+            w-11
+            bg-gray-500
+            transition-colors
+          "
+          checked-class="bg-blue-500"
+          unchecked-class="bg-gray-500"
+        >
+          <span
+            class="
+              translate-x-1
+              inline-block
+              w-4
+              h-4
+              transform
+              transition-transform
+              bg-white
+              rounded-full
+            "
+            checked-class="translate-x-6"
+            unchecked-class="translate-x-1"
+          >
+          </span>
+        </hui-switch>
+      </div>
+    </div>
+  </body>
+</html>

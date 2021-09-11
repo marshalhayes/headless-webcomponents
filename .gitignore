@@ -1,0 +1,12 @@
+# IDE-specific
+.vscode/
+
+# OS-specific
+.DS_Store
+
+# Compiled output
+node_modules/
+dist/
+out-tsc/
+
+custom-elements.json

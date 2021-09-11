@@ -1,0 +1,12 @@
+{
+  "name": "headless-webcomponents",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marshalhayes/headless-webcomponents",
+  "author": "Marshal Hayes <17213165+marshalhayes@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
