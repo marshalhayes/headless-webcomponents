@@ -8,15 +8,13 @@
   "module": "dist/src/index.js",
   "exports": {
     ".": "./dist/src/index.js",
-    "./hui-dialog.js": "./dist/src/hui-switch.js"
+    "./hui-switch.js": "./dist/src/hui-switch.js"
   },
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
-    "build": "tsc && npm run analyze -- --exclude dist",
-    "prepublish": "tsc && npm run analyze -- --exclude dist",
-    "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
-    "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore"
+    "build": "tsc && yarn analyze --exclude dist",
+    "prepublish": "tsc && yarn analyze --exclude dist"
   },
   "dependencies": {
     "lit": "^2.0.0-rc.4"
