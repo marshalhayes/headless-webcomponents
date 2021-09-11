@@ -1,5 +1,5 @@
 import { html, LitElement } from 'lit';
-import { property, queryAssignedNodes } from 'lit/decorators.js';
+import { property, query, queryAssignedNodes } from 'lit/decorators.js';
 
 export class HuiSwitch extends LitElement {
   @property({
@@ -13,9 +13,6 @@ export class HuiSwitch extends LitElement {
 
   @property({ type: String, attribute: 'unchecked-class' })
   uncheckedClass = '';
-
-  @queryAssignedNodes()
-  slottedNodes!: NodeListOf<HTMLElement>;
 
   connectedCallback() {
     super.connectedCallback();
@@ -74,7 +71,7 @@ export class HuiSwitch extends LitElement {
     const uncheckedClassList = this.uncheckedClass.split(' ');
     const checkedClassList = this.checkedClass.split(' ');
 
-    const relevantSlottedNodes = Array.from(this.slottedNodes)
+    const relevantChildren = Array.from(this.children)
       .filter(
         node =>
           node.nodeType === Node.ELEMENT_NODE &&
@@ -91,7 +88,7 @@ export class HuiSwitch extends LitElement {
     if (checked) {
       HuiSwitch.toggleClassLists(this, uncheckedClassList, checkedClassList);
 
-      relevantSlottedNodes.forEach(
+      relevantChildren.forEach(
         ({ node, uncheckedClassList, checkedClassList }) => {
           HuiSwitch.toggleClassLists(
             node,
@@ -103,7 +100,7 @@ export class HuiSwitch extends LitElement {
     } else {
       HuiSwitch.toggleClassLists(this, checkedClassList, uncheckedClassList);
 
-      relevantSlottedNodes.forEach(
+      relevantChildren.forEach(
         ({ node, uncheckedClassList, checkedClassList }) => {
           HuiSwitch.toggleClassLists(
             node,
@@ -115,8 +112,12 @@ export class HuiSwitch extends LitElement {
     }
   }
 
-  render() {
-    return html`<slot></slot>`;
+  /**
+   * Render without shadow dom
+   * @returns
+   */
+  createRenderRoot() {
+    return this;
   }
 
   /**
@@ -128,7 +129,7 @@ export class HuiSwitch extends LitElement {
    * @param toAdd The classes to add
    */
   private static toggleClassLists(
-    node: HTMLElement,
+    node: Element,
     toRemove: Iterable<string>,
     toAdd: Iterable<string>,
   ) {
