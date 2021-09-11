@@ -1,22 +1,7 @@
-import { css, html, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { property, queryAssignedNodes } from 'lit/decorators.js';
 
 export class HuiSwitch extends LitElement {
-  static styles = css`
-    :host button {
-      background: none;
-      color: inherit;
-      padding: 0;
-      margin: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
-      border: inherit;
-      width: 100%;
-      height: 100%;
-    }
-  `;
-
   @property({
     type: Boolean,
     reflect: true,

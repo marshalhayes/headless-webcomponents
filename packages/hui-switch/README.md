@@ -1,47 +1,40 @@
-# \<hui-switch>
+# \<hui-switch />
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i @hui/switch
+yarn add @hui/switch
 ```
 
 ## Usage
 
 ```html
+<!-- Import the module -->
 <script type="module">
   import '@hui/switch';
 </script>
 
-<hui-switch></hui-switch>
+<!-- Use the component -->
+<hui-switch
+  class="relative inline-flex items-center h-6 rounded-full w-11 bg-gray-500 transition-colors"
+  checked-class="bg-blue-500"
+  unchecked-class="bg-gray-500"
+>
+  <span
+    class="translate-x-1 inline-block w-4 h-4 transform transition-transform bg-white rounded-full"
+    checked-class="translate-x-6"
+    unchecked-class="translate-x-1"
+  >
+  </span>
+</hui-switch>
 ```
-
-## Linting and formatting
-
-To scan the project for linting and formatting errors, run
-
-```bash
-npm run lint
-```
-
-To automatically fix linting and formatting errors, run
-
-```bash
-npm run format
-```
-
-## Tooling configs
-
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
-
-If you customize the configuration a lot, you can consider moving them to individual files.
 
 ## Local Demo with `web-dev-server`
 
 ```bash
-npm start
+yarn start
 ```
 
-To run a local development server that serves the basic demo located in `demo/index.html`
+To run a local development server that serves the basic demo located in [demo/index.html](demo/index.html).
